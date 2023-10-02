@@ -13,9 +13,7 @@ int main() {
     }
 
     for (int i = 0; i < n; i++) {
-        cout<<"Print i: "<<i<<endl;
         for (int j = i + 1; j < n; j++) {
-            cout<<"Print j: "<<j<<endl;
             if( masyvas[i] > masyvas[j]) {
                 temp = masyvas[i];
                 masyvas[i] = masyvas[j];
