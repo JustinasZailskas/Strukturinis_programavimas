@@ -1,0 +1,3 @@
+/Users/justinaszailskas/Documents/Strukturinio programavimo pagrindai/ReferenceAndValueParameters/cmake-build-debug/CMakeFiles/ReferenceAndValueParameters.dir
+/Users/justinaszailskas/Documents/Strukturinio programavimo pagrindai/ReferenceAndValueParameters/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/justinaszailskas/Documents/Strukturinio programavimo pagrindai/ReferenceAndValueParameters/cmake-build-debug/CMakeFiles/rebuild_cache.dir

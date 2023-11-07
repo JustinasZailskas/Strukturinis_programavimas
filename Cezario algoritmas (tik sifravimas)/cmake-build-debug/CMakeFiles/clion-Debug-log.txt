@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S "/Users/justinaszailskas/Documents/Strukturinio programavimo pagrindai/Cezario algoritmas" -B "/Users/justinaszailskas/Documents/Strukturinio programavimo pagrindai/Cezario algoritmas/cmake-build-debug"
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S "/Users/justinaszailskas/Documents/Strukturinis_programavimas/Cezario algoritmas (tik sifravimas)" -B "/Users/justinaszailskas/Documents/Strukturinis_programavimas/Cezario algoritmas (tik sifravimas)/cmake-build-debug"
 -- The C compiler identification is AppleClang 14.0.0.14000029
 -- The CXX compiler identification is AppleClang 14.0.0.14000029
 -- Detecting C compiler ABI info
@@ -11,6 +11,6 @@
 -- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (9.4s)
+-- Configuring done (6.7s)
 -- Generating done (0.0s)
--- Build files have been written to: /Users/justinaszailskas/Documents/Strukturinio programavimo pagrindai/Cezario algoritmas/cmake-build-debug
+-- Build files have been written to: /Users/justinaszailskas/Documents/Strukturinis_programavimas/Cezario algoritmas (tik sifravimas)/cmake-build-debug
