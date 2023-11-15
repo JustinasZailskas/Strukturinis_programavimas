@@ -1,53 +1,87 @@
+// ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
 #include <iostream>
+#include <fstream>
 #include <string>
 using namespace std;
 
-int main() {
-    char abecele [26] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    string tekstas;
-    string uzsifruotasTekstas;
-    int poslinkis;
-    int teksto_indeksai [200];
-    int uzsifruoto_teksto_indeksai [200];
-    cout <<"Iveskite sifruojama teksta \n";
-    //cin >> tekstas;
-    getline(cin, tekstas);
-    cout <<"Ivestas tekstas yra: "<<tekstas<<endl;
-    for (int i = 0; i < tekstas.length(); i++){
-        tekstas[i] = toupper(tekstas[i]);
-    }
-    cout <<"Pakeiciam mazas raides i dideles: "<< tekstas<<endl;
-    cout << sizeof(abecele)<<endl; //strlen gali nurodyti masyve esanciu elementu skaiciu, ta pati gali atlikti ir sizeof
+char abecele[26] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+
+string sifravimas(string tekstas, int poslinkis, string tipas)
+{
+    int teksto_indeksai[200] = { 0 };
+    int pakeisti_teksto_indeksai[200] = { 0 };
+    string rezultatas;
     for (int i = 0; i < tekstas.length(); i++) {
-        cout <<"Teksto raide: "<<tekstas[i]<<endl;
-        for ( int j = 0; j < sizeof(abecele); j++){
-            if(abecele[j] == tekstas[i]) {
-                cout<<"Pozicija "<<j<<endl;
+        for (int j = 0; j < sizeof(abecele); j++) {
+            if (abecele[j] == tekstas[i]) {
                 teksto_indeksai[i] = j;
             }
         }
     }
     for (int i = 0; i < tekstas.length(); i++) {
-        cout <<"Indeksu reiksmes "<<teksto_indeksai[i]<<endl;
+        pakeisti_teksto_indeksai[i] = (tipas == "sifravimas") ?
+                                      (teksto_indeksai[i] + poslinkis) % sizeof(abecele) : (tipas == "desifravimas") ?
+                                                                                           (teksto_indeksai[i] - poslinkis + sizeof(abecele)) % sizeof(abecele) : 0;
     }
-
-    cout <<"Iveskite poslinki: "<<endl;
-    cin >>poslinkis;
     for (int i = 0; i < tekstas.length(); i++) {
-        uzsifruoto_teksto_indeksai[i] = (teksto_indeksai[i] + poslinkis)% sizeof(abecele);
-        cout<<"Uzsifruotos raides pozicija "<<uzsifruoto_teksto_indeksai[i]<<endl;
-    }
-
-    for (int i = 0; i < tekstas.length(); i++){
-        cout<<"Indeksas "<<uzsifruoto_teksto_indeksai[i]<<endl;
-        for ( int j = 0; j < sizeof(abecele); j++){
-            if(j == uzsifruoto_teksto_indeksai[i]) {
-                cout<<"Pozicija "<<abecele[j]<<endl;
-                uzsifruotasTekstas += abecele[j];
-                cout<<"string "<<uzsifruotasTekstas<<endl;
+        for (int j = 0; j < sizeof(abecele); j++) {
+            if (j == pakeisti_teksto_indeksai[i]) {
+                rezultatas += abecele[j];
             }
         }
     }
-    cout<<"Uzsifruotas tekstas "<<uzsifruotasTekstas;
-    return 0;
+    return rezultatas;
 }
+
+int main()
+{
+
+    string tekstas;
+    string tipas;
+    int poslinkis;
+    int pasirinkimas;
+
+    do{
+        cout << "Pasirinkite funkcija \n"
+             << "Norite uzsifruoti spauskite - 1\n"
+             << "Norite desifruoti spauskite - 2\n"
+             << "Norite pabaigti spauskite - 0 \n"<<endl;
+        cin >> pasirinkimas;
+        tipas = (pasirinkimas == 1) ? "sifravimas" : (pasirinkimas == 2) ? "desifravimas" : "";
+        switch (pasirinkimas) {
+            case 1:
+                cout << "Uzsifruoti"<<endl;
+                cout << "Iveskite sifruojama teksta: " << endl;
+                cin >> tekstas;
+
+                for (int i = 0; i < tekstas.length(); i++) {
+                    tekstas[i] = toupper(tekstas[i]);
+                }
+                cout << "Iveskite poslinki: " << endl;
+                cin >> poslinkis;
+                cout << endl;
+                cout << "Uzsifruotas tekstas yra lygus: " << sifravimas(tekstas, poslinkis, tipas)<<endl;
+                break;
+            case 2:
+                cout << "Desifruoti" <<endl;
+                cout << "Iveskite teksta: " << endl;
+                cin >> tekstas;
+
+                for (int i = 0; i < tekstas.length(); i++) {
+                    tekstas[i] = toupper(tekstas[i]);
+                }
+                cout << "Iveskite poslinki: " << endl;
+                cin >> poslinkis;
+                cout << endl;
+                cout << "Desifruotas tekstas yra lygus: " << sifravimas(tekstas, poslinkis, tipas) << endl;
+                break;
+            default:
+                cout << "Pabaiga";
+        }
+    } while (pasirinkimas != 0);
+
+
+}
+
