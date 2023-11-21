@@ -1,0 +1,4 @@
+Line 1: Sum = 420
+Line 2: Sum = 511
+Line 3: Sum = 694
+Line 4: Sum = 398
