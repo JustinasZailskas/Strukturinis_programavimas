@@ -1,0 +1,3 @@
+/Users/justinaszailskas/Documents/Strukturinio programavimo pagrindai/Struct_fourth_example/cmake-build-debug/CMakeFiles/Struct_fourth_example.dir
+/Users/justinaszailskas/Documents/Strukturinio programavimo pagrindai/Struct_fourth_example/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/justinaszailskas/Documents/Strukturinio programavimo pagrindai/Struct_fourth_example/cmake-build-debug/CMakeFiles/rebuild_cache.dir
